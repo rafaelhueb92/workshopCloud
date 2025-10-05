@@ -18,3 +18,5 @@ Documentation and implementation details will be added as the project progresses
 ---
 
 ⭐ Star this repo to follow the progress!
+<br>
+Install the Load Balancer Controller: https://docs.aws.amazon.com/pt_br/eks/latest/userguide/lbc-helm.html

@@ -10,6 +10,14 @@ variable "auth" {
     }
 }
 
+variable "tags" { 
+    type = map(string)
+    default = {
+        Project = "workshop-devops-na-nuvem"
+        Environment = "Production"
+    }
+}
+
 variable "vpc" {
     type = object({
         name = string

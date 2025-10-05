@@ -1,0 +1,14 @@
+resources:
+  - frontend/deploy.yml
+  - frontend/service.yml
+  - backend/deploy.yml
+  - backend/service.yml
+
+images:
+  - name: 180294221572.dkr.ecr.us-east-1.amazonaws.com/dvn-workshop/production/backend
+    newName: 180294221572.dkr.ecr.us-east-1.amazonaws.com/dvn-workshop/production/backend
+    newTag: V1.0
+
+  - name: 180294221572.dkr.ecr.us-east-1.amazonaws.com/dvn-workshop/production/frontend
+    newName: 180294221572.dkr.ecr.us-east-1.amazonaws.com/dvn-workshop/production/frontend
+    newTag: V1.0

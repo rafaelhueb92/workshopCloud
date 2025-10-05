@@ -3,3 +3,6 @@
 terraform.tfstate
 *.tfstate
 00-state-backend/terraform.tfstate.backup
+infra/00-state-backend/terraform.tfstate.backup
+infra/04-ec2-to-push-image-if-local-macos/terraform.tfstate.backup
+*.tfstate.backup
