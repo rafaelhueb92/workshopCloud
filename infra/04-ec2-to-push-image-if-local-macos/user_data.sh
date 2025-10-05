@@ -37,3 +37,7 @@ echo "Logged in to ECR: $ACCOUNT_ID in $REGION"
 SCRIPT
 chmod +x /home/ec2-user/ecr-login.sh
 chown ec2-user:ec2-user /home/ec2-user/ecr-login.sh
+
+sudo usermod -aG docker ssm-user
+
+sudo systemctl enable --now docker

@@ -7,8 +7,8 @@ resources:
 images:
   - name: 180294221572.dkr.ecr.us-east-1.amazonaws.com/dvn-workshop/production/backend
     newName: 180294221572.dkr.ecr.us-east-1.amazonaws.com/dvn-workshop/production/backend
-    newTag: V1.0
+    newTag: "20251005211803"
 
   - name: 180294221572.dkr.ecr.us-east-1.amazonaws.com/dvn-workshop/production/frontend
     newName: 180294221572.dkr.ecr.us-east-1.amazonaws.com/dvn-workshop/production/frontend
-    newTag: V1.0
+    newTag: "2ba291a"
