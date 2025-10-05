@@ -67,3 +67,5 @@ Star this repo to follow the progress!
 8. Open the folder apps inside the repo
 
 9. Run bash scripts/push-to-ecr.sh
+
+10. If you wanna test in your host you can run for example kubectl port-forward svc/backend 30003:30003
