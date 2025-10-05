@@ -61,3 +61,9 @@ Star this repo to follow the progress!
      - For `ssm-user`:
 
        sudo -iu ssm-user
+
+7. Clone with git this repo.
+
+8. Open the folder apps inside the repo
+
+9. Run bash scripts/push-to-ecr.sh

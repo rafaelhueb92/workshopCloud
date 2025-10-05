@@ -1,1 +1,0 @@
-docker buildx use multiarch
