@@ -45,7 +45,9 @@ resource "aws_iam_role_policy" "ecr_push_policy" {
           "ecr:PutImage",
           "ecr:InitiateLayerUpload",
           "ecr:UploadLayerPart",
-          "ecr:CompleteLayerUpload"
+          "ecr:CompleteLayerUpload",
+          "ecr:CreateRepository",
+          "ecr:DescribeRepositories"
         ]
         Resource = "*"
       }

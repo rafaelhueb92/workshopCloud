@@ -36,7 +36,9 @@ for APP in "${APPS[@]}"; do
 
   echo ""
   echo "=== Building ${APP} ==="
-  docker buildx build --no-cache -f "${APP_PATH}/${DOCKERFILE_NAME}" -t "${LOCAL_NAME}:${VERSION}" "${APP_PATH}"
+  docker build --no-cache -f "${APP_PATH}/${DOCKERFILE_NAME}" -t "${LOCAL_NAME}:${VERSION}" "${APP_PATH}"
+
+  echo "Checking if repo ${REPOSITORY_PREFIX}/${APP} in the region ${AWS_REGION} exists" 
   
   # Ensure ECR repo exists (idempotent)
   if ! aws ecr describe-repositories --repository-names "${REPOSITORY_PREFIX}/${APP}" --region "${AWS_REGION}" >/dev/null 2>&1; then
