@@ -12,9 +12,6 @@ resource "aws_iam_role" "load_balancer_controller_role" {
         Condition = {
           StringEquals = {
                  "${replace(aws_iam_openid_connect_provider.eks_oidc_provider.url,"https://","")}:sub" = "system:serviceaccount:kube-system:aws-load-balancer-controller"
-               
-          }
-           StringEquals = {
                  "${replace(aws_iam_openid_connect_provider.eks_oidc_provider.url,"https://","")}:aud" = "sts.amazonaws.com"
                
           }

@@ -20,6 +20,7 @@ Star this repo to follow the progress!
 ## 📚 Helpful Link
 
 - Install the AWS Load Balancer Controller: https://docs.aws.amazon.com/pt_br/eks/latest/userguide/lbc-helm.html
+- Annotations ingress: https://kubernetes-sigs.github.io/aws-load-balancer-controller/v2.2/guide/ingress/annotations/
 
 ## 🧰 Using EC2 to Push Images (for local macOS workflows)
 
