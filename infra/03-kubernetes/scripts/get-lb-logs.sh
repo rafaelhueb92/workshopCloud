@@ -1,1 +1,0 @@
-kubectl -n default logs deploy/aws-load-balancer-controller -f

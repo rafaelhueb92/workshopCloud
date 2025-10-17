@@ -1,1 +1,0 @@
-kubectl -n kube-system get sa aws-load-balancer-controller -o yaml | grep -A2 annotations
