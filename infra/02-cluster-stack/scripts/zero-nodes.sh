@@ -1,0 +1,1 @@
+eksctl scale nodegroup --cluster=dvn-workshop-eks-cluster --name=dvn-workshop-eks-cluster-node-group --nodes=0 --nodes-min=0
