@@ -56,3 +56,8 @@ variable "aws_ecr_repositories" {
         name = "dvn-workshop/production/frontend"
     }]
 }
+
+variable "create_oidc_github" { 
+    type = bool
+    default = false
+}

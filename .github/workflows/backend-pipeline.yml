@@ -8,6 +8,10 @@ on:
 env:
   REPOSITORY: dvn-workshop/production/backend
   IMAGE_TAG: ${{ github.sha }}
+  
+permissions:
+  contents: read
+  id-token: write
 
 jobs:
   backend:
@@ -21,8 +25,8 @@ jobs:
     - name: Configure AWS Credentials
       uses: aws-actions/configure-aws-credentials@v5.1.0
       with:
-        aws-region: us-east-1
-        role-to-assume: arn:aws:iam::
+        aws-region: ${{ vars.AWS_REGION }}
+        role-to-assume: ${{ vars.AWS_ROLE_TO_ASSUME }}
 
     - name: Login to Amazon ECR
       id: login-ecr
@@ -33,5 +37,23 @@ jobs:
         REGISTRY: ${{ steps.login-ecr.outputs.registry }}
 
       run: |
-        docker build -t $REGISTRY/$REPOSITORY:$IMAGE_TAG .
+        docker build -f ./apps/backend/Dockerfile -t $REGISTRY/$REPOSITORY:$IMAGE_TAG ./apps/backend/
         docker push $REGISTRY/$REPOSITORY:$IMAGE_TAG
+    
+    - name: Checkout Code
+      uses: actions/checkout@v4
+      with:
+        repository: workshopCloud-gitops
+        token: ${{ secrets.PAT }}
+
+    - name: Kustomize Edit
+      env:
+        REGISTRY: ${{ steps.login-ecr.outputs.registry }}
+
+      run: |
+        kustomize edit set image $REGISTRY/$REPOSITORY=$REGISTRY/$REPOSITORY:$IMAGE_TAG 
+        git config user.name "github-actions[bot]"
+        git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+        git add ./workshopCloud-gitops/manifests/kustomization.yml
+        git commit -m "[BOT] Updating image to $REGISTRY/$REPOSITORY:$IMAGE_TAG"
+        git push

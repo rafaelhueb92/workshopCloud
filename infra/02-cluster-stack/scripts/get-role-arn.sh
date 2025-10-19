@@ -1,0 +1,1 @@
+aws iam get-role --role-name DvnWorkshopGithubRole --query 'Role.Arn' --output text
