@@ -8,7 +8,7 @@ on:
 env:
   REPOSITORY: dvn-workshop/production/backend
   IMAGE_TAG: ${{ github.sha }}
-  
+
 permissions:
   contents: read
   id-token: write
@@ -43,7 +43,7 @@ jobs:
     - name: Checkout Code
       uses: actions/checkout@v4
       with:
-        repository: workshopCloud-gitops
+        repository: rafaelhueb92/workshopCloud-gitops
         token: ${{ secrets.PAT }}
 
     - name: Kustomize Edit
