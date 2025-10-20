@@ -51,6 +51,7 @@ jobs:
         REGISTRY: ${{ steps.login-ecr.outputs.registry }}
 
       run: |
+        echo pwd
         cd ./manifests
         kustomize edit set image $REGISTRY/$REPOSITORY=$REGISTRY/$REPOSITORY:$IMAGE_TAG 
         git config user.name "github-actions[bot]"
