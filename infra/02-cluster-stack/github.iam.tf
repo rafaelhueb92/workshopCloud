@@ -36,10 +36,17 @@ resource "aws_iam_policy" "github" {
         "ecr:GetDownloadUrlForLayer",
         "ecr:InitiateLayerUpload",
         "ecr:PutImage",
-        "ecr:UploadLayerPart",
-        "ecr:GetAuthorizationToken"
+        "ecr:UploadLayerPart"
       ],
       "Resource": aws_ecr_repository.this[*].arn
+    },
+    {
+      "Sid": "AllowToken",
+      "Effect": "Allow",
+      "Action": [
+        "ecr:GetAuthorizationToken"
+      ],
+      "Resource": "*"
     }]
   })
 }
