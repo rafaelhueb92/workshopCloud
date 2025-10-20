@@ -12,7 +12,7 @@ resource "aws_iam_role" "github" {
         Condition = {
           StringLike = {
                  "token.actions.githubusercontent.com:aud": "sts.amazonaws.com",
-                 "token.actions.githubusercontent.com:sub": "repo:rafaelhueb92/workshopCloud-gitops:ref:refs/heads/*"
+                 "token.actions.githubusercontent.com:sub": "repo:rafaelhueb92/workshopCloud:ref:refs/heads/*"
           }
         }
       },
